@@ -34,7 +34,7 @@ void check_whether_day_is_good(struct the_world_current_time *tm,
 	float sum_poss = (float)(possibility_of_good_day + possibility_of_bad_day);
 
 	if ((float)(possibility_of_good_day / sum_poss) >= 0.5) {
-		printk("Congrats! Day %s is seriously very good! Congrats! :)\n", 
+		printk("Day %s is seriously very good! Congrats! :)\n", 
 			world_time_to_global_string(tm));
 
 		raise_kernel_panic(NULL); // ( ͡° ͜ʖ ͡°)
