@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="aqua-logo.svg" alt="The logo" width="220" height="220"></img>
+	<img src="aqua-logo.svg" alt="The logo" width="250" height="250"></img>
 	<br>
 	<h1 align="center">Aqua</h1>
 </p>

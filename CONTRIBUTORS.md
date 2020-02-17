@@ -1,9 +1,12 @@
-# Other people who involved in making the OS
+# Other people who have involved in making the OS
+
+**Programmers**:  
+[devildefu](https://github.com/devildefu)
 
 **Logo**:  
 [liquid600pgm](https://github.com/liquid600pgm)
 
-**Music**:  
+**Music and sounds**:  
 [olekolek1000](https://github.com/olekolek1000)
 
 **Encouraging words**:  

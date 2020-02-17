@@ -6,16 +6,15 @@
 | ---				| ---
 | **Context management:**	|
 | exit(2)			| Exit the program with error code and free its resources
-| clone(2)			| Clone a task
-| makecxt(2)			| Create a new task context
+| makecxt(2)			| Create a new context
 | wait(2)			| Wait for a task to exit
 | prctl(2)			| Set or get a process config (like identifier)
 | getpid(2)			| Get current process id
 | nanosleep(2)			| Sleep a task
 |				|
 | **Task identification:**	|
-| identifier_list(2)		| Get list of identifiers
-| identifier_entry(2)		| Get tasks of specific identifier
+| identifier_get(2)		| Get list of identifiers
+| identifier_pid(2)		| Get tasks of specific identifier
 |				|
 | **Permissions**		|
 | setperm(2)			| Set current process permission (0-3)
@@ -28,20 +27,20 @@
 | vctl(2)			| Set a memory page settings
 |				|
 | **Messages mechanism:**	|
-| msgcreat(2)			| Create a message queue for specified signal on specified memory page
-| msgwait(2)			| Wait for a message from specified or all signals
-| msgsnd(2)			| Send a meesage to a task
-| msgrm(2)			| Remove a message queue from specified page
-| msgproc(2)			| Install a procedure which will be called on messaging specified signal
-| msgproc_ret(2)		| Return from a msg procedure
+| msgctl(2)			| Control a message queue
+| msgpoll(2)			| Wait for message from the message queue
+| msgproc(2)			| Setup an asynchronous message procedure
+| msgproc_ret(2)		| Return from an asynchronous message procedure
+| msgset(2)			| Setup a message queue
+| msgsnd(2)			| Send a message via the message queue
 |				|
-| **Other:**			|
-| clock_gettime(2)		| Get a time ***For tests only. For getting a time there is a task: 0:timer in Aqua OS***
+| **Oscalls**			|
+| oscall(2)			| Call a syscall set up by the user space
 
 
 
 ### Note
-- As you can see, there are extremely little syscalls - 21 (without clock_gettime). They are only for those basic operations without which, communication shouldn't be possible. 
+- As you can see, there are extremely little syscalls - 21. They are only for those basic operations without which, communication shouldn't be possible. 
   Everything other is done using other tasks, because kernel must be as smallest as possible.
   To be honest, even all *Context Management* functions would be out of the syscall interface, but they are very important and always should be in a kernel.  
   The syscall count may be changed in the future.

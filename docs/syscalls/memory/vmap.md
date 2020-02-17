@@ -108,10 +108,17 @@
 
 		Only permission ring 1 and below is permitted.
 
-		If addr is NULL, the memory is mapped into 0x0 - 0x650000 range.
+		If addr is NULL, the memory is mapped into 0xfffffffe00000000 - 0xffffffffffffffff address range.
 		Note:
-			It is necessary to map kernel memory into 0x0 - 0x65000 range to use microkernel functions without errors.
+			It is necessary to map kernel memory into above range to be able to validly use kernel functions.
 			Kernel memory is like it was allocated with VMAP_SHARE, but only for previleged users.
+
+	VMAP_KERNEL_SPACE
+		Alloc a page in the kernel memory.  
+		This page will be mapped in each process' virtual memory.
+		Kernel page may be SHARED with the convention of VMAP_SHARE, but  
+		anyway it is also publicly shared in the range specified in VMAP_KERNEL.  
+		Only previleged processes with hardware ring 0 can access this range.
 
 
 	vunmap() unmaps memory and eventually deallocates it if no more process uses it.
